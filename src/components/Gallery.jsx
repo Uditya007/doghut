@@ -101,7 +101,7 @@ export default function Gallery() {
   }, [selectedId, modalApi]);
 
   return (
-    <section className="relative overflow-hidden bg-beige py-24 md:py-32" id="gallery">
+    <section className="relative overflow-hidden bg-beige py-16 md:py-32" id="gallery">
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-[0.02] pointer-events-none">
         <div
@@ -146,12 +146,12 @@ export default function Gallery() {
           viewport={{ once: true }}
           className="relative group/carousel max-w-6xl mx-auto"
         >
-          <div className="overflow-hidden rounded-3xl" ref={carouselRef}>
-            <div className="flex -ml-4">
+          <div className="overflow-hidden rounded-2xl sm:rounded-3xl" ref={carouselRef}>
+            <div className="flex -ml-3 sm:-ml-4">
               {galleryImages.map((image, idx) => (
                 <div
                   key={image.id}
-                  className="pl-4 flex-[0_0_85%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%]"
+                  className="pl-3 sm:pl-4 flex-[0_0_62%] sm:flex-[0_0_45%] lg:flex-[0_0_33.333%]"
                 >
                   <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
@@ -159,7 +159,7 @@ export default function Gallery() {
                     transition={{ delay: idx * 0.05, duration: 0.5 }}
                     viewport={{ once: true }}
                     whileHover={{ scale: 1.02 }}
-                    className="group relative cursor-pointer overflow-hidden rounded-2xl md:rounded-3xl shadow-lg border border-brand/10 bg-brand/5"
+                    className="group relative cursor-pointer overflow-hidden rounded-xl sm:rounded-2xl md:rounded-3xl shadow-md sm:shadow-lg border border-brand/10 bg-brand/5"
                     onClick={() => openLightbox(image.id)}
                   >
                     <div className="aspect-[3/4] w-full overflow-hidden bg-brand/5">
@@ -170,13 +170,13 @@ export default function Gallery() {
                       />
                     </div>
                     {/* Hover Overlay */}
-                    <div className="absolute inset-0 flex flex-col justify-end p-5 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                      <span className="text-white font-heading text-sm sm:text-base font-medium">
+                    <div className="absolute inset-0 flex flex-col justify-end p-3.5 sm:p-5 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                      <span className="text-white font-heading text-xs sm:text-base font-medium line-clamp-1">
                         {image.title}
                       </span>
-                      <div className="mt-2 inline-flex items-center gap-1.5 text-xs text-beige/80">
-                        <ZoomIn className="h-3.5 w-3.5" />
-                        <span>Click to expand</span>
+                      <div className="mt-1 sm:mt-2 inline-flex items-center gap-1 sm:gap-1.5 text-[10px] sm:text-xs text-beige/80">
+                        <ZoomIn className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
+                        <span>Click to view</span>
                       </div>
                     </div>
                   </motion.div>
@@ -239,7 +239,7 @@ export default function Gallery() {
                       <img
                         src={image.src}
                         alt={image.alt}
-                        className="max-h-[calc(100dvh-15rem)] w-auto max-w-full rounded-2xl object-contain shadow-2xl border border-beige/10"
+                        className="max-h-[58vh] sm:max-h-[calc(100dvh-15rem)] w-auto max-w-full rounded-xl sm:rounded-2xl object-contain shadow-2xl border border-beige/10"
                       />
                       <p className="mt-3 text-center text-sm md:text-base font-heading text-beige/90">
                         {image.title}

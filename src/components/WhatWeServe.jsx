@@ -65,7 +65,7 @@ function FoodCard({ item, isActive, onClick }) {
   return (
     <motion.div
       variants={cardVariants}
-      className="group relative w-full cursor-pointer perspective-1000 aspect-square max-w-[120px] sm:max-w-[160px] md:max-w-none mx-auto"
+      className="group relative w-full cursor-pointer perspective-1000 aspect-square max-w-[110px] sm:max-w-[150px] md:max-w-none mx-auto"
       onClick={onClick}
     >
       <AnimatePresence mode="wait">
@@ -147,13 +147,13 @@ export default function WhatWeServe() {
           </motion.p>
         </motion.div>
 
-        {/* 5 Photos Grid — Compact, proportional and petite on mobile */}
+        {/* 5 Photos Grid — Generously spaced, proportional and petite on mobile */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-50px' }}
-          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-6 md:gap-7 max-w-[280px] sm:max-w-xl md:max-w-3xl lg:max-w-6xl mx-auto [&>*:last-child]:col-span-2 sm:[&>*:last-child]:col-span-1 [&>*:last-child]:max-w-[120px] sm:[&>*:last-child]:max-w-[160px] md:[&>*:last-child]:max-w-none [&>*:last-child]:mx-auto sm:[&>*:last-child]:mx-0 [&>*:last-child]:w-full"
+          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-x-8 sm:gap-x-10 md:gap-x-12 gap-y-10 sm:gap-y-12 md:gap-y-14 max-w-[340px] sm:max-w-xl md:max-w-3xl lg:max-w-6xl mx-auto [&>*:last-child]:col-span-2 sm:[&>*:last-child]:col-span-1 [&>*:last-child]:max-w-[110px] sm:[&>*:last-child]:max-w-[150px] md:[&>*:last-child]:max-w-none [&>*:last-child]:mx-auto sm:[&>*:last-child]:mx-0 [&>*:last-child]:w-full"
         >
           {items.map((item) => (
             <FoodCard

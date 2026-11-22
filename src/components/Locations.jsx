@@ -102,7 +102,7 @@ export default function Locations() {
         >
           {outlets.map((outlet) => (
             <motion.div key={outlet.id} variants={cardVariants} className="group relative">
-              <div className="relative h-96 sm:h-[460px] overflow-hidden rounded-3xl shadow-xl flex flex-col justify-end p-6 sm:p-8 border border-brand/10">
+              <div className="relative h-64 sm:h-80 md:h-[440px] overflow-hidden rounded-2xl sm:rounded-3xl shadow-lg flex flex-col justify-end p-4 sm:p-6 md:p-8 border border-brand/10 max-w-sm sm:max-w-none mx-auto w-full">
                 {/* Background Store Image */}
                 <img
                   src={outlet.image}
@@ -111,27 +111,27 @@ export default function Locations() {
                 />
 
                 {/* Dark Vignette Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/20" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/55 to-black/15" />
 
                 {/* Top Badge */}
-                <div className="absolute top-5 left-5 z-10">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium uppercase tracking-wider bg-beige/90 text-brand backdrop-blur-md shadow">
-                    <MapPin className="w-3.5 h-3.5 text-brand" />
+                <div className="absolute top-3 left-3 sm:top-5 sm:left-5 z-10">
+                  <span className="inline-flex items-center gap-1 sm:gap-1.5 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-xs font-medium uppercase tracking-wider bg-beige/90 text-brand backdrop-blur-md shadow">
+                    <MapPin className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-brand" />
                     {outlet.tag}
                   </span>
                 </div>
 
                 {/* Content at Bottom */}
                 <div className="relative z-10 text-beige">
-                  <h3 className="text-2xl sm:text-3xl font-heading font-medium text-white mb-2">
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-heading font-medium text-white mb-1 sm:mb-2">
                     {outlet.name}
                   </h3>
-                  <p className="text-xs sm:text-sm text-beige/80 line-clamp-2 mb-3 leading-relaxed">
+                  <p className="text-[11px] sm:text-xs md:text-sm text-beige/80 line-clamp-1 sm:line-clamp-2 mb-2 sm:mb-3 leading-relaxed">
                     {outlet.address}
                   </p>
 
-                  <div className="flex items-center gap-2 text-xs text-beige/70 mb-5">
-                    <Clock className="w-3.5 h-3.5" />
+                  <div className="flex items-center gap-1.5 text-[10px] sm:text-xs text-beige/70 mb-3 sm:mb-5">
+                    <Clock className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                     <span>{outlet.timing}</span>
                   </div>
 
@@ -141,14 +141,14 @@ export default function Locations() {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="inline-flex items-center justify-center gap-2 w-full py-3 px-5 rounded-full bg-brand text-beige hover:bg-brand-dark transition-colors duration-300 text-sm font-medium shadow-md border border-beige/20"
+                    className="inline-flex items-center justify-center gap-1.5 sm:gap-2 w-full py-2 sm:py-3 px-4 sm:px-5 rounded-full bg-brand text-beige hover:bg-brand-dark transition-colors duration-300 text-xs sm:text-sm font-medium shadow-md border border-beige/20"
                   >
                     <span>Get Directions</span>
-                    <ExternalLink className="w-4 h-4" />
+                    <ExternalLink className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   </motion.a>
                 </div>
 
-                <div className="absolute inset-0 rounded-3xl border-2 border-beige/0 group-hover:border-beige/30 transition-colors duration-500 pointer-events-none" />
+                <div className="absolute inset-0 rounded-2xl sm:rounded-3xl border-2 border-beige/0 group-hover:border-beige/30 transition-colors duration-500 pointer-events-none" />
               </div>
             </motion.div>
           ))}
