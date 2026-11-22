@@ -28,6 +28,31 @@ const dividerVariants = {
   },
 };
 
+const fireflies = [
+  { id: 1, x: '-15%', y: '10%', size: 5, driftX: 18, driftY: 22, duration: 3.8, delay: 0.1 },
+  { id: 2, x: '10%', y: '-20%', size: 4, driftX: -14, driftY: 18, duration: 4.2, delay: 0.8 },
+  { id: 3, x: '45%', y: '-25%', size: 6, driftX: 20, driftY: -16, duration: 3.4, delay: 1.5 },
+  { id: 4, x: '85%', y: '-15%', size: 4, driftX: -16, driftY: 20, duration: 4.5, delay: 0.4 },
+  { id: 5, x: '108%', y: '15%', size: 6, driftX: 14, driftY: -22, duration: 3.6, delay: 1.2 },
+  { id: 6, x: '112%', y: '55%', size: 4, driftX: -18, driftY: 15, duration: 4.0, delay: 2.1 },
+  { id: 7, x: '95%', y: '90%', size: 5, driftX: 16, driftY: -18, duration: 3.5, delay: 0.6 },
+  { id: 8, x: '60%', y: '105%', size: 4, driftX: -15, driftY: -20, duration: 4.8, delay: 1.9 },
+  { id: 9, x: '25%', y: '110%', size: 6, driftX: 18, driftY: 16, duration: 3.9, delay: 0.3 },
+  { id: 10, x: '-10%', y: '85%', size: 4, driftX: -14, driftY: -18, duration: 4.4, delay: 1.7 },
+  { id: 11, x: '-20%', y: '50%', size: 5, driftX: 15, driftY: 14, duration: 3.7, delay: 2.4 },
+  { id: 12, x: '20%', y: '30%', size: 3, driftX: 10, driftY: -12, duration: 3.2, delay: 0.9 },
+  { id: 13, x: '75%', y: '35%', size: 4, driftX: -12, driftY: 14, duration: 4.1, delay: 1.4 },
+  { id: 14, x: '50%', y: '70%', size: 3, driftX: 12, driftY: -10, duration: 3.6, delay: 2.0 },
+];
+
+const sparkles = [
+  { id: 1, x: '5%', y: '-10%', size: 14, duration: 2.8, delay: 0.2 },
+  { id: 2, x: '92%', y: '5%', size: 16, duration: 3.2, delay: 1.1 },
+  { id: 3, x: '105%', y: '75%', size: 12, duration: 2.6, delay: 1.8 },
+  { id: 4, x: '-8%', y: '70%', size: 15, duration: 3.0, delay: 0.7 },
+  { id: 5, x: '50%', y: '-15%', size: 13, duration: 2.9, delay: 1.5 },
+];
+
 export default function Hero() {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -88,10 +113,66 @@ export default function Hero() {
           animate="visible"
           custom={0.2}
         >
+          {/* Warm Ambient Logo Aura */}
+          <div className="absolute inset-0 -m-8 sm:-m-12 rounded-full bg-gradient-radial from-amber-400/20 via-amber-500/10 to-transparent blur-2xl pointer-events-none" />
+
+          {/* Fireflies floating and glittering around the logo */}
+          <div className="absolute inset-0 pointer-events-none select-none">
+            {fireflies.map((f) => (
+              <motion.span
+                key={f.id}
+                style={{ left: f.x, top: f.y, width: f.size, height: f.size }}
+                className="absolute rounded-full"
+                animate={{
+                  x: [0, f.driftX, -f.driftX * 0.7, 0],
+                  y: [0, -f.driftY, f.driftY * 0.6, 0],
+                  opacity: [0.15, 0.95, 0.3, 1, 0.2],
+                  scale: [0.7, 1.35, 0.85, 1.25, 0.7],
+                }}
+                transition={{
+                  duration: f.duration,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                  delay: f.delay,
+                }}
+              >
+                <span className="block w-full h-full rounded-full bg-amber-100 shadow-[0_0_6px_#fde047,0_0_12px_#f59e0b,0_0_20px_#d97706]" />
+              </motion.span>
+            ))}
+
+            {/* Glittering Sparkles */}
+            {sparkles.map((s) => (
+              <motion.div
+                key={s.id}
+                style={{ left: s.x, top: s.y, width: s.size, height: s.size }}
+                className="absolute pointer-events-none"
+                animate={{
+                  scale: [0, 1.2, 0],
+                  rotate: [0, 90, 180],
+                  opacity: [0, 0.9, 0],
+                }}
+                transition={{
+                  duration: s.duration,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                  delay: s.delay,
+                }}
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="w-full h-full text-amber-200 drop-shadow-[0_0_8px_rgba(251,191,36,0.95)]"
+                >
+                  <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z" />
+                </svg>
+              </motion.div>
+            ))}
+          </div>
+
           <img
             src="/doghut-logo-transparent.png"
             alt="दोghut"
-            className="h-28 sm:h-36 md:h-44 lg:h-52 w-auto object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] select-none"
+            className="h-28 sm:h-36 md:h-44 lg:h-52 w-auto object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] select-none relative z-10"
           />
           <h1 className="sr-only">दोghut</h1>
         </motion.div>
