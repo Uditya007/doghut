@@ -54,15 +54,9 @@ export default function Hero() {
           transition={{ duration: 1.5, ease: [0.25, 0.4, 0.25, 1] }}
           className="absolute inset-0"
         >
-          {/* Desktop background from bennebae.in */}
           <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat hidden md:block"
-            style={{ backgroundImage: `url('/images/store.webp')` }}
-          />
-          {/* Mobile portrait background from bennebae.in */}
-          <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat md:hidden"
-            style={{ backgroundImage: `url('/images/store2.webp')` }}
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: `url('/images/hero-friends.webp')` }}
           />
         </motion.div>
         <div className="absolute inset-0 bg-gradient-to-b from-brand/60 via-brand/75 to-brand/85" />
