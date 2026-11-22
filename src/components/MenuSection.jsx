@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Sparkles } from 'lucide-react';
 
 // Exactly 5 items in the curated text menu
 const chaiItems = [
@@ -73,38 +72,14 @@ export default function MenuSection() {
           {/* Inner vintage border */}
           <div className="absolute inset-2 sm:inset-3 border border-brand/15 rounded-2xl pointer-events-none" />
 
-          {/* Top Header Row with Outlets */}
-          <div className="flex flex-col sm:flex-row items-center justify-between text-[10px] sm:text-xs font-semibold tracking-wider sm:tracking-widest text-brand/70 uppercase gap-1.5 mb-5 sm:mb-8 border-b border-brand/10 pb-3 sm:pb-4 text-center sm:text-left">
-            <span className="flex items-center gap-1.5">
-              <Sparkles className="w-3 h-3 text-brand shrink-0" />
-              PREMIUM CHAI & RABDI BUNS
-            </span>
-            <span className="flex items-center gap-1.5 text-brand">
-              <MapPin className="w-3 h-3 text-brand shrink-0" />
-              SHAHEEN BAGH &bull; AHMEDABAD
-            </span>
-          </div>
-
-          {/* Main Title / Brand Logo Header */}
-          <div className="text-center mb-7 sm:mb-10">
-            <div className="inline-flex items-center justify-center gap-1.5 mb-1.5">
-              <img
-                src="/images/doghut-logo-transparent.png"
-                alt="दोGhunt"
-                className="h-10 sm:h-14 w-auto object-contain brightness-0 filter"
-                style={{
-                  filter:
-                    'invert(10%) sepia(80%) saturate(4500%) hue-rotate(335deg) brightness(40%) contrast(100%)',
-                }}
-              />
-              <span className="text-[10px] sm:text-xs font-bold text-brand align-top self-start -ml-0.5">™</span>
-            </div>
+          {/* Main Title Header */}
+          <div className="text-center mb-8 sm:mb-10">
             <div className="flex items-center justify-center gap-3">
-              <div className="h-px w-10 sm:w-16 bg-brand/30" />
-              <h2 className="font-heading text-sm sm:text-base tracking-[0.3em] text-brand uppercase font-medium">
+              <div className="h-px w-12 sm:w-20 bg-brand/30" />
+              <h2 className="font-heading text-lg sm:text-2xl tracking-[0.3em] text-brand uppercase font-semibold">
                 MENU
               </h2>
-              <div className="h-px w-10 sm:w-16 bg-brand/30" />
+              <div className="h-px w-12 sm:w-20 bg-brand/30" />
             </div>
           </div>
 
