@@ -59,10 +59,10 @@ export default function Hero() {
             className="absolute inset-0 bg-cover bg-center bg-no-repeat hidden md:block"
             style={{ backgroundImage: `url('/images/hero-store.jpg')` }}
           />
-          {/* Mobile crystal sharp portrait background */}
+          {/* Mobile crystal sharp clean storefront background */}
           <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat md:hidden"
-            style={{ backgroundImage: `url('/images/hero-store-mobile.jpg')` }}
+            style={{ backgroundImage: `url('/images/hero-store-clean.png')` }}
           />
         </motion.div>
         <div className="absolute inset-0 bg-gradient-to-b from-brand/50 via-brand/70 to-brand/85" />
