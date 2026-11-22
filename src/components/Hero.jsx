@@ -62,15 +62,19 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-brand/50 via-brand/70 to-brand/85" />
       </motion.div>
 
-      {/* Hanging Light (Preserved Lantern) */}
-      <motion.img
-        src="/images/hanging-light.webp"
-        alt=""
+      {/* Hanging Festive String Bulbs in Upper Area */}
+      <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.3, ease: 'easeOut' }}
-        className="absolute top-0 left-2 z-10 h-[20vh] pointer-events-none"
-      />
+        transition={{ duration: 1.2, delay: 0.2, ease: 'easeOut' }}
+        className="absolute top-0 inset-x-0 z-10 pointer-events-none select-none flex justify-center overflow-hidden"
+      >
+        <img
+          src="/images/string-lights.png"
+          alt=""
+          className="w-full max-w-7xl h-auto object-cover sm:object-contain object-top max-h-[16vh] sm:max-h-[22vh] md:max-h-[26vh] filter drop-shadow-[0_8px_25px_rgba(255,180,60,0.4)]"
+        />
+      </motion.div>
 
       {/* Content */}
       <motion.div
