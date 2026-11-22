@@ -11,11 +11,13 @@ const franchiseData = {
 };
 
 const routePoints = [
-  { name: 'Shaheen Bagh (Delhi)', x: 160, y: 150, label: 'above', labelDy: -14 },
-  { x: 380, y: 110 },
-  { name: 'Ahmedabad (Gujarat)', x: 600, y: 150, label: 'below', loop: true },
-  { x: 840, y: 100 },
-  { name: 'Your City Next', x: 1040, y: 150, label: 'above', labelDy: -14 },
+  { x: 50, y: 130 },
+  { name: 'Shaheen Bagh (Delhi)', x: 200, y: 165, label: 'above', labelDy: -14, loop: true },
+  { x: 400, y: 75 },
+  { name: 'Ahmedabad (Gujarat)', x: 600, y: 165, label: 'below', loop: true },
+  { x: 800, y: 75 },
+  { name: 'Your City Next', x: 990, y: 165, label: 'above', labelDy: -14, loop: false },
+  { x: 1130, y: 120 },
 ];
 
 const generateSmoothPath = (pts) => {
@@ -30,62 +32,23 @@ const generateSmoothPath = (pts) => {
   return `M ${pts[0].x} ${pts[0].y} ${segs.join(' ')}`;
 };
 
-const getTextAnchor = (x) => (x < 90 ? 'start' : x > 1090 ? 'end' : 'middle');
+const getTextAnchor = (x) => (x < 120 ? 'start' : x > 1050 ? 'end' : 'middle');
 
 function RouteMap() {
   const pathD = generateSmoothPath(routePoints);
   const namedPoints = routePoints.filter((pt) => pt.name);
 
   return (
-    <div>
-      {/* Mobile Vertical Timeline */}
-      <div className="block md:hidden max-w-sm mx-auto mb-10 px-4">
-        <div className="flex flex-col items-center gap-3">
-          <div className="w-full rounded-2xl bg-beige/10 border border-beige/15 p-4 text-center">
-            <span className="text-[10px] font-mono text-beige/60 uppercase tracking-widest block mb-1">
-              Outlet 1 &bull; Flagship
-            </span>
-            <h4 className="font-heading text-lg text-beige font-medium">
-              Shaheen Bagh (Delhi)
-            </h4>
-          </div>
-
-          <div className="flex flex-col items-center gap-1 my-1">
-            <div className="w-0.5 h-6 bg-dashed border-l border-dashed border-beige/40" />
-            <div className="w-2 h-2 rounded-full bg-beige" />
-            <div className="w-0.5 h-6 bg-dashed border-l border-dashed border-beige/40" />
-          </div>
-
-          <div className="w-full rounded-2xl bg-beige/10 border border-beige/15 p-4 text-center">
-            <span className="text-[10px] font-mono text-beige/60 uppercase tracking-widest block mb-1">
-              Outlet 2 &bull; Gujarat
-            </span>
-            <h4 className="font-heading text-lg text-beige font-medium">
-              Ahmedabad
-            </h4>
-          </div>
-
-          <div className="flex flex-col items-center gap-1 my-1">
-            <div className="w-0.5 h-6 bg-dashed border-l border-dashed border-beige/40" />
-            <div className="w-2 h-2 rounded-full bg-beige" />
-            <div className="w-0.5 h-6 bg-dashed border-l border-dashed border-beige/40" />
-          </div>
-
-          <div className="w-full rounded-2xl bg-beige/20 border-2 border-beige/40 p-4 text-center">
-            <span className="text-[10px] font-mono text-beige/70 uppercase tracking-widest block mb-1">
-              Expansion
-            </span>
-            <h4 className="font-heading text-lg text-beige font-semibold">
-              Your City Next
-            </h4>
-          </div>
-        </div>
+    <div className="relative">
+      {/* Mobile Swipe Hint */}
+      <div className="flex md:hidden items-center justify-center gap-1.5 text-beige/50 text-xs mb-3 font-sans">
+        <span>← Swipe to explore our outlet route →</span>
       </div>
 
-      {/* Desktop Curved Route Map */}
-      <div className="hidden md:block no-scrollbar overflow-x-auto">
+      {/* Curved Route Map for both Mobile and Desktop */}
+      <div className="no-scrollbar -mx-4 overflow-x-auto px-4 md:mx-0 md:px-0">
         <motion.svg
-          viewBox="0 0 1200 260"
+          viewBox="0 0 1180 260"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           role="img"
@@ -93,86 +56,104 @@ function RouteMap() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-80px' }}
-          className="h-auto w-full"
+          className="h-auto w-205 md:w-full min-w-[720px] select-none"
         >
-        {/* Curved connecting line */}
-        <motion.path
-          d={pathD}
-          stroke="var(--color-beige)"
-          strokeWidth={2.5}
-          strokeLinecap="round"
-          strokeDasharray="9 11"
-          variants={{
-            hidden: { opacity: 0 },
-            visible: { opacity: 0.85, transition: { duration: 1, ease: 'easeOut' } },
-          }}
-        />
+          {/* Decorative Neon Green Accent Arcs */}
+          <path
+            d="M 1150 20 C 1175 80 1175 180 1150 240"
+            stroke="#22c55e"
+            strokeWidth={4.5}
+            strokeLinecap="round"
+            opacity={0.85}
+          />
+          <path
+            d="M 30 245 C 18 245 10 235 10 215"
+            stroke="#22c55e"
+            strokeWidth={4.5}
+            strokeLinecap="round"
+            opacity={0.85}
+          />
 
-        {/* Outlets markers and labels */}
-        {namedPoints.map((point, index) => {
-          const textY =
-            (point.label === 'above' ? point.y - 34 - 14 : point.y + 30) +
-            (point.labelDy ?? 0);
+          {/* Curved connecting line */}
+          <motion.path
+            d={pathD}
+            stroke="var(--color-beige)"
+            strokeWidth={2.5}
+            strokeLinecap="round"
+            strokeDasharray="9 11"
+            variants={{
+              hidden: { opacity: 0 },
+              visible: { opacity: 0.85, transition: { duration: 1, ease: 'easeOut' } },
+            }}
+          />
 
-          return (
-            <motion.g
-              key={point.name}
-              variants={{
-                hidden: { opacity: 0, y: -10 },
-                visible: {
-                  opacity: 1,
-                  y: 0,
-                  transition: {
-                    duration: 0.5,
-                    delay: 0.35 + index * 0.09,
-                    ease: [0.25, 0.4, 0.25, 1],
+          {/* Outlets markers and labels */}
+          {namedPoints.map((point, index) => {
+            const textY =
+              (point.label === 'above' ? point.y - 34 - 14 : point.y + 30) +
+              (point.labelDy ?? 0);
+
+            return (
+              <motion.g
+                key={point.name}
+                variants={{
+                  hidden: { opacity: 0, y: -10 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: {
+                      duration: 0.5,
+                      delay: 0.35 + index * 0.09,
+                      ease: [0.25, 0.4, 0.25, 1],
+                    },
                   },
-                },
-              }}
-            >
-              {/* Pulsing ring for selected hubs */}
-              {point.loop && (
-                <ellipse
-                  cx={point.x}
-                  cy={point.y - 15}
-                  rx={31}
-                  ry={25}
-                  stroke="var(--color-beige)"
-                  strokeOpacity={0.55}
-                  strokeWidth={2}
-                  strokeDasharray="7 9"
-                />
-              )}
-
-              {/* Pin marker */}
-              <path
-                d="M 0 0 C -6 -11 -13 -17 -13 -25 A 13 13 0 1 1 13 -25 C 13 -17 6 -11 0 0 Z"
-                transform={`translate(${point.x} ${point.y})`}
-                fill="#e2572c"
-              />
-              <circle
-                cx={point.x}
-                cy={point.y - 25}
-                r={4.5}
-                fill="var(--color-brand-dark)"
-                fillOpacity={0.55}
-              />
-
-              {/* City name text */}
-              <text
-                x={point.x}
-                y={textY}
-                textAnchor={getTextAnchor(point.x)}
-                fill="var(--color-beige)"
-                className="font-heading font-medium tracking-wide"
-                fontSize={22}
+                }}
               >
-                {point.name}
-              </text>
-            </motion.g>
-          );
-        })}
-      </motion.svg>
+                {/* Pulsing ring for selected hubs */}
+                {point.loop && (
+                  <ellipse
+                    cx={point.x}
+                    cy={point.y - 15}
+                    rx={32}
+                    ry={26}
+                    stroke="var(--color-beige)"
+                    strokeOpacity={0.6}
+                    strokeWidth={2}
+                    strokeDasharray="7 9"
+                  />
+                )}
+
+                {/* Pin marker */}
+                <path
+                  d="M 0 0 C -6 -11 -13 -17 -13 -25 A 13 13 0 1 1 13 -25 C 13 -17 6 -11 0 0 Z"
+                  transform={`translate(${point.x} ${point.y})`}
+                  fill="#e2572c"
+                  filter="drop-shadow(0px 3px 6px rgba(0,0,0,0.35))"
+                />
+                <circle
+                  cx={point.x}
+                  cy={point.y - 25}
+                  r={4.5}
+                  fill="var(--color-brand-dark)"
+                  fillOpacity={0.65}
+                />
+
+                {/* City name text */}
+                <text
+                  x={point.x}
+                  y={textY}
+                  textAnchor={getTextAnchor(point.x)}
+                  fill="var(--color-beige)"
+                  className="font-heading font-medium tracking-wide"
+                  fontSize={23}
+                  fontWeight="600"
+                >
+                  {point.name}
+                </text>
+              </motion.g>
+            );
+          })}
+        </motion.svg>
       </div>
     </div>
   );
