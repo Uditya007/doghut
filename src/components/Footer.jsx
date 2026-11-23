@@ -4,7 +4,7 @@ import { Instagram, Phone, Mail, MapPin, ExternalLink } from 'lucide-react';
 
 const footerContact = {
   email: 'doghut@gmail.com',
-  phone: '+91 81085 18539',
+  phone: '+91 99906 03332',
   address: 'E-136/1 Azad Road, Near Shaheen bagh police Station, Okhla, ND-110025',
 };
 
@@ -86,7 +86,7 @@ export default function Footer() {
             </p>
             <div className="flex gap-3">
               <motion.a
-                href="https://www.instagram.com/bennebaeofficial/"
+                href="https://www.instagram.com/2ghut_/"
                 whileHover={{ scale: 1.1, y: -3 }}
                 whileTap={{ scale: 0.95 }}
                 transition={{ duration: 0.2 }}

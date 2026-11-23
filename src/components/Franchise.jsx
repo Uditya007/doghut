@@ -1,12 +1,13 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, Phone } from 'lucide-react';
+import FranchiseModal from './FranchiseModal';
 
 const franchiseData = {
   heading: 'Own a दोghut Outlet',
   email: 'doghut@gmail.com',
-  phone: '+917021566763',
-  phoneDisplay: '+91 70215 66763',
+  phone: '+919990603332',
+  phoneDisplay: '+91 99906 03332',
   link: 'https://forms.gle/1mKqG3Gyeu2UGtsw8',
 };
 
@@ -169,6 +170,7 @@ const animVariants = {
 };
 
 export default function Franchise() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -232,15 +234,14 @@ export default function Franchise() {
             viewport={{ once: true }}
             className="flex flex-col items-center justify-center gap-4 sm:flex-row"
           >
-            <a
-              href={franchiseData.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex gap-2 items-center rounded-lg p-2 group bg-beige px-8 py-3 text-brand hover:bg-white transition-all duration-300 font-medium shadow-md"
+            <button
+              type="button"
+              onClick={() => setIsModalOpen(true)}
+              className="flex gap-2 items-center rounded-lg p-2 group bg-beige px-8 py-3 text-brand hover:bg-white transition-all duration-300 font-medium shadow-md cursor-pointer"
             >
-              Apply
+              Apply for Franchise
               <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
-            </a>
+            </button>
           </motion.div>
 
           <motion.a
@@ -257,6 +258,9 @@ export default function Franchise() {
           </motion.a>
         </div>
       </div>
+
+      {/* Franchise Enquiry Modal Form */}
+      <FranchiseModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
 
       {/* Bottom Wave Divider */}
       <div className="absolute bottom-0 left-0 right-0">
