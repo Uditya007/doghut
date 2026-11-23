@@ -3,8 +3,8 @@ import { motion } from 'framer-motion';
 import { Instagram, Phone, Mail, MapPin, ExternalLink } from 'lucide-react';
 
 const footerContact = {
-  email: 'doghut@gmail.com',
-  phone: '+91 99906 03332',
+  email: 'Doghutofficial1@gmail.com',
+  phone: '+91 87449 46013',
   address: 'E-136/1 Azad Road, Near Shaheen bagh police Station, Okhla, ND-110025',
 };
 

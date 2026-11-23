@@ -5,9 +5,9 @@ import FranchiseModal from './FranchiseModal';
 
 const franchiseData = {
   heading: 'Own a दोghut Outlet',
-  email: 'doghut@gmail.com',
-  phone: '+919990603332',
-  phoneDisplay: '+91 99906 03332',
+  email: 'Doghutofficial1@gmail.com',
+  phone: '+918744946013',
+  phoneDisplay: '+91 87449 46013',
   link: 'https://forms.gle/1mKqG3Gyeu2UGtsw8',
 };
 

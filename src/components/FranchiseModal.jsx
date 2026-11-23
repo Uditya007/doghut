@@ -80,7 +80,7 @@ export default function FranchiseModal({ isOpen, onClose }) {
       `*Setup Timeline:* ${encodeURIComponent(formData.setupTimeline)}`;
 
     // Open WhatsApp directly
-    const waUrl = `https://wa.me/919990603332?text=${textMessage}`;
+    const waUrl = `https://wa.me/918744946013?text=${textMessage}`;
     window.open(waUrl, '_blank', 'noopener,noreferrer');
   };
 
@@ -96,7 +96,7 @@ export default function FranchiseModal({ isOpen, onClose }) {
       `*Prior Business Experience:* ${encodeURIComponent(formData.businessExperience.trim())}%0A` +
       `*Operational Involvement:* ${encodeURIComponent(formData.operationalInvolvement)}%0A` +
       `*Setup Timeline:* ${encodeURIComponent(formData.setupTimeline)}`;
-    return `https://wa.me/919990603332?text=${textMessage}`;
+    return `https://wa.me/918744946013?text=${textMessage}`;
   };
 
   return (
@@ -222,7 +222,7 @@ export default function FranchiseModal({ isOpen, onClose }) {
                         required
                         value={formData.phone}
                         onChange={(e) => handleChange('phone', e.target.value)}
-                        placeholder="e.g. 9990603332"
+                        placeholder="e.g. 8744946013"
                         className="w-full px-4 py-3 rounded-xl bg-[#200104]/80 border border-brand/50 text-beige placeholder:text-beige/35 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400/40 transition-colors text-base"
                       />
                     </div>
@@ -418,7 +418,7 @@ export default function FranchiseModal({ isOpen, onClose }) {
                       <Send className="size-4" />
                     </button>
                     <p className="text-center text-xs text-beige/50 mt-2.5">
-                      Direct WhatsApp enquiry to +91 99906 03332
+                      Direct WhatsApp enquiry to +91 87449 46013
                     </p>
                   </div>
                 </form>
