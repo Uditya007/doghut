@@ -6,7 +6,7 @@ const storyData = {
   tagline: 'Our Story',
   heading: 'Mai hu दोGhut ki chai',
   quote: 'Bol toh paati nahi, batau kese ki apke qaabil bani hu?',
-  bio: 'With two beloved outlets in Shaheen Bagh (Delhi) and Ahmedabad (Gujarat), दोGhut is dedicated to authentic, soul-warming tea and artisanal rabdi buns. Every cup of Irani Dum Tea and every fresh bun is handcrafted with honest tradition and heartfelt hospitality.',
+  bio: 'With beloved outlets in Shaheen Bagh (Delhi), Jamia Nagar (Delhi), and Ahmedabad (Gujarat), दोGhut is dedicated to authentic, soul-warming tea and artisanal rabdi buns. Every cup of Irani Dum Tea and every fresh bun is handcrafted with honest tradition and heartfelt hospitality.',
 };
 
 const textAnim = {
@@ -117,6 +117,12 @@ export default function Founder() {
             className="inline-flex items-center gap-2 rounded-full bg-beige px-5 py-2.5 text-brand text-xs sm:text-sm font-medium shadow hover:bg-white transition-colors duration-300"
           >
             <span>📍 Shaheen Bagh, Delhi</span>
+          </a>
+          <a
+            href="#locations"
+            className="inline-flex items-center gap-2 rounded-full bg-beige px-5 py-2.5 text-brand text-xs sm:text-sm font-medium shadow hover:bg-white transition-colors duration-300"
+          >
+            <span>📍 Jamia Nagar, Delhi</span>
           </a>
           <a
             href="#locations"

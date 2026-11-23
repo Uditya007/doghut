@@ -12,13 +12,15 @@ const franchiseData = {
 };
 
 const routePoints = [
-  { x: 50, y: 130 },
-  { name: 'Shaheen Bagh (Delhi)', x: 200, y: 165, label: 'above', labelDy: -14, loop: true },
-  { x: 400, y: 75 },
-  { name: 'Ahmedabad (Gujarat)', x: 600, y: 165, label: 'below', loop: true },
-  { x: 800, y: 75 },
-  { name: 'Your City Next', x: 990, y: 165, label: 'above', labelDy: -14, loop: false },
-  { x: 1130, y: 120 },
+  { x: 40, y: 130 },
+  { name: 'Shaheen Bagh (Delhi)', x: 180, y: 165, label: 'above', labelDy: -14, loop: true },
+  { x: 330, y: 75 },
+  { name: 'Jamia Nagar (Delhi)', x: 480, y: 165, label: 'below', loop: true },
+  { x: 630, y: 75 },
+  { name: 'Ahmedabad (Gujarat)', x: 780, y: 165, label: 'above', labelDy: -14, loop: true },
+  { x: 920, y: 75 },
+  { name: 'Your City Next', x: 1040, y: 165, label: 'below', loop: false },
+  { x: 1160, y: 120 },
 ];
 
 const generateSmoothPath = (pts) => {

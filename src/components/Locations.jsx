@@ -16,6 +16,16 @@ const outlets = [
   },
   {
     id: 2,
+    tag: 'Delhi Outlet',
+    name: 'Jamia Nagar, Delhi',
+    city: 'New Delhi',
+    address: 'Jamia Nagar, Okhla, New Delhi - 110025',
+    timing: '10:00 AM - 12:00 AM (Daily)',
+    mapLink: 'https://maps.app.goo.gl/mrHrqtjaKUabYtTE6?g_st=ic',
+    image: '/images/stores/outlet-jamia-nagar.webp',
+  },
+  {
+    id: 3,
     tag: 'Gujarat Outlet',
     name: 'Ahmedabad',
     city: 'Ahmedabad, Gujarat',
@@ -76,7 +86,7 @@ export default function Locations() {
           className="mb-14 md:mb-18 text-center"
         >
           <span className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-brand/60 block mb-2">
-            2 EXCLUSIVE OUTLETS
+            3 EXCLUSIVE OUTLETS
           </span>
           <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl text-brand font-normal tracking-tight">
             Our Outlets
@@ -88,17 +98,17 @@ export default function Locations() {
             viewport={{ once: true }}
             className="mx-auto mt-4 md:mt-5 max-w-xl text-brand/70 text-base md:text-lg leading-relaxed"
           >
-            Visit us in <strong>Shaheen Bagh (Delhi)</strong> and <strong>Ahmedabad</strong> for authentic Irani Dum Tea and fresh Rabdi Buns.
+            Visit us in <strong>Shaheen Bagh (Delhi)</strong>, <strong>Jamia Nagar (Delhi)</strong>, and <strong>Ahmedabad</strong> for authentic Irani Dum Tea and fresh Rabdi Buns.
           </motion.p>
         </motion.div>
 
-        {/* 2 Outlets Side by Side */}
+        {/* 3 Outlets Side by Side */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-50px' }}
-          className="mx-auto grid max-w-4xl grid-cols-1 md:grid-cols-2 gap-6 md:gap-8"
+          className="mx-auto grid max-w-6xl grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
         >
           {outlets.map((outlet) => (
             <motion.div key={outlet.id} variants={cardVariants} className="group relative">

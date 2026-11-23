@@ -159,19 +159,19 @@ export default function Footer() {
           </motion.div>
         </div>
 
-        {/* Prominent Address at Bottom for Both Outlets */}
+        {/* Prominent Address at Bottom for All Outlets */}
         <motion.div
           variants={colVariants}
-          className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-4"
+          className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-4"
         >
           {/* Outlet 1: Shaheen Bagh, Delhi */}
-          <div className="rounded-2xl bg-white/5 border border-beige/10 p-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-            <div className="flex flex-col sm:flex-row items-center gap-3.5">
+          <div className="rounded-2xl bg-white/5 border border-beige/10 p-5 flex flex-col justify-between gap-4 text-center sm:text-left">
+            <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3.5">
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-beige/10 text-beige">
                 <MapPin className="h-5 w-5" />
               </div>
               <div>
-                <h5 className="font-heading text-beige text-base font-medium">Flagship Outlet — Shaheen Bagh</h5>
+                <h5 className="font-heading text-beige text-base font-medium">Flagship — Shaheen Bagh</h5>
                 <p className="text-xs sm:text-sm text-beige/60">
                   E-136/1 Azad Road, Near Shaheen bagh police Station, Okhla, ND-110025
                 </p>
@@ -181,16 +181,40 @@ export default function Footer() {
               href="https://www.google.com/maps/search/?api=1&query=E-136%2F1+Azad+Road%2C+Near+Shaheen+bagh+police+Station%2C+Okhla%2C+ND-110025"
               target="_blank"
               rel="noopener noreferrer"
-              className="shrink-0 inline-flex items-center gap-2 rounded-full bg-beige px-4 py-2 text-xs font-medium text-brand hover:bg-white transition-colors duration-300 shadow"
+              className="shrink-0 inline-flex items-center justify-center gap-2 rounded-full bg-beige px-4 py-2 text-xs font-medium text-brand hover:bg-white transition-colors duration-300 shadow mt-2"
             >
               <span>Get Directions</span>
               <ExternalLink className="h-3.5 w-3.5" />
             </a>
           </div>
 
-          {/* Outlet 2: Ahmedabad, Gujarat */}
-          <div className="rounded-2xl bg-white/5 border border-beige/10 p-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-            <div className="flex flex-col sm:flex-row items-center gap-3.5">
+          {/* Outlet 2: Jamia Nagar, Delhi */}
+          <div className="rounded-2xl bg-white/5 border border-beige/10 p-5 flex flex-col justify-between gap-4 text-center sm:text-left">
+            <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3.5">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-beige/10 text-beige">
+                <MapPin className="h-5 w-5" />
+              </div>
+              <div>
+                <h5 className="font-heading text-beige text-base font-medium">Jamia Nagar Outlet — Delhi</h5>
+                <p className="text-xs sm:text-sm text-beige/60">
+                  Jamia Nagar, Okhla, New Delhi - 110025
+                </p>
+              </div>
+            </div>
+            <a
+              href="https://maps.app.goo.gl/mrHrqtjaKUabYtTE6?g_st=ic"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="shrink-0 inline-flex items-center justify-center gap-2 rounded-full bg-beige px-4 py-2 text-xs font-medium text-brand hover:bg-white transition-colors duration-300 shadow mt-2"
+            >
+              <span>Get Directions</span>
+              <ExternalLink className="h-3.5 w-3.5" />
+            </a>
+          </div>
+
+          {/* Outlet 3: Ahmedabad, Gujarat */}
+          <div className="rounded-2xl bg-white/5 border border-beige/10 p-5 flex flex-col justify-between gap-4 text-center sm:text-left">
+            <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3.5">
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-beige/10 text-beige">
                 <MapPin className="h-5 w-5" />
               </div>
@@ -205,7 +229,7 @@ export default function Footer() {
               href="https://www.google.com/maps/search/?api=1&query=Ahmedabad+Gujarat+doghut"
               target="_blank"
               rel="noopener noreferrer"
-              className="shrink-0 inline-flex items-center gap-2 rounded-full bg-beige px-4 py-2 text-xs font-medium text-brand hover:bg-white transition-colors duration-300 shadow"
+              className="shrink-0 inline-flex items-center justify-center gap-2 rounded-full bg-beige px-4 py-2 text-xs font-medium text-brand hover:bg-white transition-colors duration-300 shadow mt-2"
             >
               <span>Get Directions</span>
               <ExternalLink className="h-3.5 w-3.5" />
