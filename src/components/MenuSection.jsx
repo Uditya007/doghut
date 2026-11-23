@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 const beverageItems = [
   {
     id: 1,
-    name: 'Hyderabadi Dum Tea',
+    name: 'Do Ghut Dum Tea',
     notes: 'RICH / AROMATIC / TIMELESS',
     highlight: 'Real Chai. No Shortcuts.',
   },
@@ -221,7 +221,7 @@ export default function MenuSection() {
             <div className="flex items-center justify-center gap-3">
               <div className="h-px w-6 sm:w-12 bg-brand/30" />
               <p className="font-serif italic text-lg sm:text-2xl font-semibold text-brand tracking-wide">
-                "Ek Ghunt, Mood Set."
+                "Ek Ghut, Mood Set."
               </p>
               <div className="h-px w-6 sm:w-12 bg-brand/30" />
             </div>

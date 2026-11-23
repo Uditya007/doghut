@@ -4,8 +4,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 const items = [
   {
     id: 1,
-    name: 'Hyderabadi Dum Tea',
-    description: 'Slow-brewed Hyderabadi Dum Tea served in traditional clay kulhads. Real Chai. No Shortcuts.',
+    name: 'Irani Dum Tea',
+    description: 'Slow-brewed Irani Dum Tea served in traditional clay kulhads. Real Chai. No Shortcuts.',
     image: '/images/food/chai-dum-tea.webp',
   },
   {
@@ -143,7 +143,7 @@ export default function WhatWeServe() {
             viewport={{ once: true }}
             className="mx-auto mt-3 md:mt-5 max-w-2xl text-brand/70 text-sm md:text-lg leading-relaxed"
           >
-            Real Chai. No Shortcuts. Authentic slow-brewed Hyderabadi Dum Tea paired with our signature artisanal Rabdi Buns.
+            Real Chai. No Shortcuts. Authentic slow-brewed Irani Dum Tea paired with our signature artisanal Rabdi Buns.
           </motion.p>
         </motion.div>
 

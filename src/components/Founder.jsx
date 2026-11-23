@@ -6,7 +6,7 @@ const storyData = {
   tagline: 'Our Story',
   heading: 'Mai hu दोGhut ki chai',
   quote: 'Bol toh paati nahi, batau kese ki apke qaabil bani hu?',
-  bio: 'With two beloved outlets in Shaheen Bagh (Delhi) and Ahmedabad (Gujarat), दोGhut is dedicated to authentic, soul-warming tea and artisanal rabdi buns. Every cup of Hyderabadi Dum Tea and every fresh bun is handcrafted with honest tradition and heartfelt hospitality.',
+  bio: 'With two beloved outlets in Shaheen Bagh (Delhi) and Ahmedabad (Gujarat), दोGhut is dedicated to authentic, soul-warming tea and artisanal rabdi buns. Every cup of Irani Dum Tea and every fresh bun is handcrafted with honest tradition and heartfelt hospitality.',
 };
 
 const textAnim = {

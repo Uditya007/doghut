@@ -88,7 +88,7 @@ export default function Locations() {
             viewport={{ once: true }}
             className="mx-auto mt-4 md:mt-5 max-w-xl text-brand/70 text-base md:text-lg leading-relaxed"
           >
-            Visit us in <strong>Shaheen Bagh (Delhi)</strong> and <strong>Ahmedabad</strong> for authentic Hyderabadi Dum Tea and fresh Rabdi Buns.
+            Visit us in <strong>Shaheen Bagh (Delhi)</strong> and <strong>Ahmedabad</strong> for authentic Irani Dum Tea and fresh Rabdi Buns.
           </motion.p>
         </motion.div>
 
