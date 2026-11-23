@@ -8,7 +8,7 @@ const initialFormData = {
   email: '',
   cityArea: '',
   hasLocation: '',
-  investmentCapacity: '',
+  investmentCapacity: '₹8 to ₹9 Lakhs',
   sourceOfInvestment: '',
   businessExperience: '',
   operationalInvolvement: '',
@@ -332,8 +332,8 @@ export default function FranchiseModal({ isOpen, onClose }) {
                     <label className="block text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-beige/85 mb-2">
                       Investment capacity for this venture <span className="text-amber-400">*</span>
                     </label>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
-                      {['₹25 to ₹35 Lakhs', 'Above ₹40 Lakhs'].map((opt) => {
+                    <div className="grid grid-cols-1 gap-2.5 sm:gap-3">
+                      {['₹8 to ₹9 Lakhs'].map((opt) => {
                         const active = formData.investmentCapacity === opt;
                         return (
                           <button
