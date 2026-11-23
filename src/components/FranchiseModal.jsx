@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Send, CheckCircle2, MessageCircle, Sparkles } from 'lucide-react';
+import { X, Send, CheckCircle2, MessageCircle, Sparkles, Mail, Loader2 } from 'lucide-react';
 
 const initialFormData = {
   fullName: '',
@@ -18,6 +18,7 @@ const initialFormData = {
 export default function FranchiseModal({ isOpen, onClose }) {
   const [formData, setFormData] = useState(initialFormData);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
 
   // Lock body scroll when modal is open
@@ -35,6 +36,7 @@ export default function FranchiseModal({ isOpen, onClose }) {
     } else {
       document.body.style.overflow = '';
       setIsSubmitted(false);
+      setIsSubmitting(false);
       setErrorMsg('');
     }
   }, [isOpen, onClose]);
@@ -44,7 +46,7 @@ export default function FranchiseModal({ isOpen, onClose }) {
     setErrorMsg('');
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Validate required fields
@@ -64,24 +66,59 @@ export default function FranchiseModal({ isOpen, onClose }) {
       return;
     }
 
-    setIsSubmitted(true);
+    setIsSubmitting(true);
+    setErrorMsg('');
 
-    // Format text for WhatsApp
-    const textMessage = `*New Franchise Enquiry - दोghut*%0A%0A` +
-      `*Full Name:* ${encodeURIComponent(formData.fullName.trim())}%0A` +
-      `*Contact Number:* ${encodeURIComponent(formData.phone.trim())}%0A` +
-      `*Email ID:* ${encodeURIComponent(formData.email.trim())}%0A` +
-      `*Proposed City / Area:* ${encodeURIComponent(formData.cityArea.trim())}%0A` +
-      `*Location in Mind:* ${encodeURIComponent(formData.hasLocation)}%0A` +
-      `*Investment Capacity:* ${encodeURIComponent(formData.investmentCapacity)}%0A` +
-      `*Source of Investment:* ${encodeURIComponent(formData.sourceOfInvestment)}%0A` +
-      `*Prior Business Experience:* ${encodeURIComponent(formData.businessExperience.trim())}%0A` +
-      `*Operational Involvement:* ${encodeURIComponent(formData.operationalInvolvement)}%0A` +
-      `*Setup Timeline:* ${encodeURIComponent(formData.setupTimeline)}`;
+    // Send email directly to Doghutofficial1@gmail.com via FormSubmit
+    try {
+      await fetch('https://formsubmit.co/ajax/Doghutofficial1@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          _subject: `New Franchise Enquiry - ${formData.fullName} (${formData.cityArea})`,
+          _captcha: 'false',
+          _template: 'table',
+          'Applicant Full Name': formData.fullName,
+          'Contact Number': formData.phone,
+          'Email ID': formData.email,
+          'Proposed City / Area': formData.cityArea,
+          'Location in Mind': formData.hasLocation,
+          'Investment Capacity': formData.investmentCapacity,
+          'Source of Investment': formData.sourceOfInvestment,
+          'Prior Business Experience': formData.businessExperience,
+          'Operational Involvement': formData.operationalInvolvement,
+          'Setup Timeline': formData.setupTimeline,
+        }),
+      });
+    } catch (err) {
+      console.error('Error submitting form to Doghutofficial1@gmail.com:', err);
+    } finally {
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+    }
+  };
 
-    // Open WhatsApp directly
-    const waUrl = `https://wa.me/918744946013?text=${textMessage}`;
-    window.open(waUrl, '_blank', 'noopener,noreferrer');
+  const getMailtoUrl = () => {
+    const subject = encodeURIComponent(
+      `Franchise Enquiry - ${formData.fullName} (${formData.cityArea})`
+    );
+    const body = encodeURIComponent(
+      `Franchise Enquiry Details - दोghut\n\n` +
+        `Full Name: ${formData.fullName}\n` +
+        `Contact Number: ${formData.phone}\n` +
+        `Email ID: ${formData.email}\n` +
+        `Proposed City / Area: ${formData.cityArea}\n` +
+        `Location in Mind: ${formData.hasLocation}\n` +
+        `Investment Capacity: ${formData.investmentCapacity}\n` +
+        `Source of Investment: ${formData.sourceOfInvestment}\n` +
+        `Prior Business Experience: ${formData.businessExperience}\n` +
+        `Operational Involvement: ${formData.operationalInvolvement}\n` +
+        `Setup Timeline: ${formData.setupTimeline}`
+    );
+    return `mailto:Doghutofficial1@gmail.com?subject=${subject}&body=${body}`;
   };
 
   const getWaMessageUrl = () => {
@@ -162,11 +199,12 @@ export default function FranchiseModal({ isOpen, onClose }) {
                   </h4>
                   <p className="text-beige/80 text-sm sm:text-base max-w-md mx-auto leading-relaxed">
                     Thank you, <strong>{formData.fullName}</strong>. Your franchise enquiry for{' '}
-                    <strong>{formData.cityArea}</strong> has been forwarded directly to our team.
+                    <strong>{formData.cityArea}</strong> has been sent to{' '}
+                    <strong className="text-amber-300">Doghutofficial1@gmail.com</strong>.
                   </p>
-                  <p className="text-xs text-beige/60">
-                    We will review your details and contact you at <strong>{formData.phone}</strong>.
-                  </p>
+                  <div className="p-3.5 rounded-xl bg-beige/10 border border-beige/15 max-w-sm mx-auto text-xs text-beige/80">
+                    📧 All application details have been emailed directly to our team. We will review and contact you at <strong>{formData.phone}</strong>.
+                  </div>
 
                   <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
                     <a
@@ -176,12 +214,19 @@ export default function FranchiseModal({ isOpen, onClose }) {
                       className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-medium shadow-lg transition-all active:scale-[0.98]"
                     >
                       <MessageCircle className="size-4" />
-                      Chat on WhatsApp Now
+                      Chat on WhatsApp
+                    </a>
+                    <a
+                      href={getMailtoUrl()}
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-beige/15 hover:bg-beige/25 text-beige font-medium transition-colors"
+                    >
+                      <Mail className="size-4" />
+                      Open in Mail App
                     </a>
                     <button
                       type="button"
                       onClick={onClose}
-                      className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-beige/10 hover:bg-beige/20 text-beige font-medium transition-colors"
+                      className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-beige/10 hover:bg-beige/20 text-beige/80 hover:text-beige font-medium transition-colors"
                     >
                       Close
                     </button>
@@ -412,13 +457,23 @@ export default function FranchiseModal({ isOpen, onClose }) {
                   <div className="pt-2 sm:pt-4">
                     <button
                       type="submit"
-                      className="w-full flex items-center justify-center gap-2 py-4 px-6 rounded-2xl bg-beige hover:bg-white text-brand font-bold text-base sm:text-lg shadow-xl shadow-black/50 transition-all active:scale-[0.98] cursor-pointer"
+                      disabled={isSubmitting}
+                      className="w-full flex items-center justify-center gap-2 py-4 px-6 rounded-2xl bg-beige hover:bg-white disabled:opacity-75 text-brand font-bold text-base sm:text-lg shadow-xl shadow-black/50 transition-all active:scale-[0.98] cursor-pointer"
                     >
-                      <span>Submit Franchise Application</span>
-                      <Send className="size-4" />
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="size-5 animate-spin text-brand" />
+                          <span>Sending Application...</span>
+                        </>
+                      ) : (
+                        <>
+                          <span>Submit Franchise Application</span>
+                          <Send className="size-4" />
+                        </>
+                      )}
                     </button>
                     <p className="text-center text-xs text-beige/50 mt-2.5">
-                      Direct WhatsApp enquiry to +91 87449 46013
+                      Application will be emailed to Doghutofficial1@gmail.com
                     </p>
                   </div>
                 </form>
