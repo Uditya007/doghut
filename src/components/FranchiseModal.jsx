@@ -139,8 +139,8 @@ export default function FranchiseModal({ isOpen, onClose }) {
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex flex-col sm:items-center sm:justify-center sm:p-4 overflow-hidden">
-          {/* Backdrop for desktop */}
+        <div className="fixed inset-0 z-[100] flex flex-col sm:items-center sm:justify-center p-0 sm:p-6 md:p-8 overflow-hidden">
+          {/* Backdrop for desktop & mobile */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -149,13 +149,13 @@ export default function FranchiseModal({ isOpen, onClose }) {
             className="fixed inset-0 bg-black/85 backdrop-blur-md"
           />
 
-          {/* Modal Container: Fullscreen on mobile, rounded card on tablet/desktop */}
+          {/* Modal Container: Fullscreen on mobile, perfectly centered rounded card on tablet/desktop */}
           <motion.div
-            initial={{ opacity: 0, y: '100%' }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: '100%' }}
-            transition={{ duration: 0.3, ease: [0.25, 0.4, 0.25, 1] }}
-            className="relative w-full h-[100dvh] sm:h-auto sm:max-h-[90vh] sm:max-w-2xl sm:rounded-3xl rounded-none bg-gradient-to-b from-[#4a030b] via-[#3a0208] to-[#250105] sm:border sm:border-beige/25 shadow-2xl text-beige flex flex-col overflow-hidden z-10"
+            initial={{ opacity: 0, scale: 0.96, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.96, y: 20 }}
+            transition={{ duration: 0.25, ease: [0.25, 0.4, 0.25, 1] }}
+            className="relative w-full h-[100dvh] sm:h-auto sm:max-h-[88vh] sm:max-w-xl md:max-w-2xl sm:rounded-3xl rounded-none bg-gradient-to-b from-[#4a030b] via-[#3a0208] to-[#250105] sm:border sm:border-beige/25 shadow-2xl text-beige flex flex-col overflow-hidden z-10 my-auto"
           >
             {/* Sticky Header */}
             <div className="sticky top-0 z-20 px-4 py-3.5 sm:px-8 sm:py-5 border-b border-brand-dark/80 bg-[#42030a]/95 backdrop-blur-md flex items-center justify-between shrink-0 shadow-lg">
@@ -332,24 +332,18 @@ export default function FranchiseModal({ isOpen, onClose }) {
                     <label className="block text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-beige/85 mb-2">
                       Investment capacity for this venture <span className="text-amber-400">*</span>
                     </label>
-                    <div className="grid grid-cols-1 gap-2.5 sm:gap-3">
-                      {['₹8 to ₹9 Lakhs'].map((opt) => {
-                        const active = formData.investmentCapacity === opt;
-                        return (
-                          <button
-                            key={opt}
-                            type="button"
-                            onClick={() => handleChange('investmentCapacity', opt)}
-                            className={`py-3 px-4 rounded-xl text-sm sm:text-base font-medium transition-all active:scale-[0.98] cursor-pointer ${
-                              active
-                                ? 'bg-beige text-brand border-2 border-beige font-bold shadow-lg shadow-black/40'
-                                : 'bg-[#200104]/80 border border-brand/50 text-beige/85 hover:bg-brand/40'
-                            }`}
-                          >
-                            {opt}
-                          </button>
-                        );
-                      })}
+                    <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
+                      <button
+                        type="button"
+                        onClick={() => handleChange('investmentCapacity', '₹8 to ₹9 Lakhs')}
+                        className={`py-3 px-4 rounded-xl text-sm sm:text-base font-medium transition-all active:scale-[0.98] cursor-pointer ${
+                          formData.investmentCapacity === '₹8 to ₹9 Lakhs'
+                            ? 'bg-beige text-brand border-2 border-beige font-bold shadow-lg shadow-black/40'
+                            : 'bg-[#200104]/80 border border-brand/50 text-beige/85 hover:bg-brand/40'
+                        }`}
+                      >
+                        ₹8 to ₹9 Lakhs
+                      </button>
                     </div>
                   </div>
 
