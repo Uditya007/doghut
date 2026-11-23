@@ -12,7 +12,7 @@ const outlets = [
     timing: '10:00 AM - 12:00 AM (Daily)',
     mapLink:
       'https://www.google.com/maps/search/?api=1&query=E-136%2F1+Azad+Road%2C+Near+Shaheen+bagh+police+Station%2C+Okhla%2C+ND-110025',
-    image: '/images/stores/outlet-shaheen-bagh.jpg',
+    image: '/images/stores/outlet-shaheen-bagh.webp',
   },
   {
     id: 2,
@@ -23,7 +23,7 @@ const outlets = [
     timing: '9:00 AM - 11:00 PM (Daily)',
     mapLink:
       'https://www.google.com/maps/search/?api=1&query=Ahmedabad+Gujarat+doghut',
-    image: '/images/stores/outlet-ahmedabad.jpg',
+    image: '/images/stores/outlet-ahmedabad.webp',
   },
 ];
 
@@ -107,6 +107,7 @@ export default function Locations() {
                 <img
                   src={outlet.image}
                   alt={outlet.name}
+                  loading="lazy"
                   className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                 />
 

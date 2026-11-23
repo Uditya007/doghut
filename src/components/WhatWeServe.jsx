@@ -6,31 +6,31 @@ const items = [
     id: 1,
     name: 'Hyderabadi Dum Tea',
     description: 'Slow-brewed Hyderabadi Dum Tea served in traditional clay kulhads. Real Chai. No Shortcuts.',
-    image: '/images/food/chai-dum-tea.png',
+    image: '/images/food/chai-dum-tea.webp',
   },
   {
     id: 2,
     name: 'Multigrain Rabdi Bun',
     description: 'Nutty, creamy, wholesome. Artisanal multigrain bun loaded with velvety reduced rabdi & pistachio crunch.',
-    image: '/images/food/bun-multigrain.png',
+    image: '/images/food/bun-multigrain.webp',
   },
   {
     id: 3,
     name: 'Chocolate Rabdi Bun',
     description: 'Rich, indulgent, classic. Premium dark chocolate drizzle over thick creamy rabdi inside a warm bun.',
-    image: '/images/food/bun-chocolate.png',
+    image: '/images/food/bun-chocolate.webp',
   },
   {
     id: 4,
     name: 'Strawberry Rabdi Bun',
     description: 'Fresh, creamy, fruity. Tangy-sweet real strawberry glaze layered over velvety traditional rabdi.',
-    image: '/images/food/bun-strawberry.png',
+    image: '/images/food/bun-strawberry.webp',
   },
   {
     id: 5,
     name: 'Blueberry Rabdi Bun',
     description: 'Tangy, creamy, refreshing. Burst of real blueberries folded into luxurious slow-cooked rabdi.',
-    image: '/images/food/bun-blueberry.png',
+    image: '/images/food/bun-blueberry.webp',
   },
 ];
 

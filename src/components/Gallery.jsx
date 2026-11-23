@@ -7,31 +7,31 @@ import { ChevronLeft, ChevronRight, X, ZoomIn } from 'lucide-react';
 const galleryImages = [
   {
     id: 1,
-    src: '/images/gallery/gallery-1.jpg',
+    src: '/images/gallery/gallery-1.webp',
     title: 'दोGhut Flagship Outlet & Kulhad Chai',
     alt: 'Shaheen Bagh Flagship Outlet',
   },
   {
     id: 2,
-    src: '/images/gallery/gallery-2.jpg',
+    src: '/images/gallery/gallery-2.webp',
     title: 'Night Ambiance & Illuminated Facade',
     alt: 'Ahmedabad Outlet Storefront at Night',
   },
   {
     id: 3,
-    src: '/images/gallery/gallery-3.jpg',
+    src: '/images/gallery/gallery-3.webp',
     title: 'Customer Love Sticky Wall',
     alt: 'Wall of Love Sticky Notes by Visitors',
   },
   {
     id: 4,
-    src: '/images/gallery/gallery-4.png',
+    src: '/images/gallery/gallery-4.webp',
     title: 'Signature Chai Heritage Wall Mural',
     alt: 'Hand-painted Wall Mural inside Store',
   },
   {
     id: 5,
-    src: '/images/gallery/gallery-5.png',
+    src: '/images/gallery/gallery-5.webp',
     title: 'Evening Vibe & Real Chai Moments',
     alt: 'Evening Chai Gathering at दोGhut',
   },

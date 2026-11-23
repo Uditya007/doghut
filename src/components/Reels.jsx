@@ -1,5 +1,5 @@
-import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import React, { useRef, useState, useEffect } from 'react';
+import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { Instagram, ExternalLink } from 'lucide-react';
 
 const reelsData = [
@@ -56,8 +56,30 @@ const reelCardVariants = {
 };
 
 function ReelCard({ reel }) {
+  const cardRef = useRef(null);
+  const isInView = useInView(cardRef, { margin: '200px 0px 200px 0px', once: false });
+  const videoRef = useRef(null);
+  const [hasStartedLoading, setHasStartedLoading] = useState(false);
+
+  useEffect(() => {
+    if (isInView && !hasStartedLoading) {
+      setHasStartedLoading(true);
+    }
+  }, [isInView, hasStartedLoading]);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      if (isInView) {
+        videoRef.current.play().catch(() => {});
+      } else {
+        videoRef.current.pause();
+      }
+    }
+  }, [isInView]);
+
   return (
     <motion.a
+      ref={cardRef}
       href={reel.url}
       target="_blank"
       rel="noopener noreferrer"
@@ -66,17 +88,26 @@ function ReelCard({ reel }) {
       transition={{ duration: 0.3, ease: 'easeOut' }}
       className="group relative block aspect-9/16 w-full overflow-hidden rounded-2xl md:rounded-3xl shadow-2xl cursor-pointer bg-black/40 border border-beige/10"
     >
-      {/* Running continuous looping video */}
+      {/* Running continuous looping video - lazy loaded when near viewport */}
       <div className="absolute inset-0">
-        <video
-          src={reel.video}
-          poster={reel.poster}
-          loop
-          autoPlay
-          muted
-          playsInline
-          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-108"
+        <img
+          src={reel.poster}
+          alt={reel.title}
+          loading="lazy"
+          className="h-full w-full object-cover"
         />
+        {hasStartedLoading && (
+          <video
+            ref={videoRef}
+            src={reel.video}
+            poster={reel.poster}
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-108"
+          />
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-black/30" />
       </div>
 

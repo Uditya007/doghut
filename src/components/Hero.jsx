@@ -95,7 +95,7 @@ export default function Hero() {
         className="absolute top-0 inset-x-0 z-10 pointer-events-none select-none flex justify-center overflow-hidden"
       >
         <img
-          src="/images/string-lights.png"
+          src="/images/string-lights.webp"
           alt=""
           className="w-full max-w-7xl h-auto object-cover sm:object-contain object-top max-h-[16vh] sm:max-h-[22vh] md:max-h-[26vh] filter drop-shadow-[0_8px_25px_rgba(255,180,60,0.4)]"
         />
