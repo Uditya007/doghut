@@ -1,40 +1,49 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-// Exactly 5 items in the curated text menu
-const chaiItems = [
+const beverageItems = [
   {
     id: 1,
     name: 'Hyderabadi Dum Tea',
-    price: '₹25',
     notes: 'RICH / AROMATIC / TIMELESS',
     highlight: 'Real Chai. No Shortcuts.',
+  },
+  {
+    id: 2,
+    name: 'Hand Beaten Coffee',
+    notes: 'FROTHY / VELVETY / NOSTALGIC',
+    highlight: 'Classic Whipped Brew',
+  },
+];
+
+const specialtyItems = [
+  {
+    id: 3,
+    name: 'Benne Dosa',
+    notes: 'CRISPY / BUTTERY GOLDEN / AUTHENTIC',
+    highlight: 'Loaded with Pure Butter',
   },
 ];
 
 const rabdiBuns = [
   {
-    id: 2,
+    id: 4,
     name: 'Multigrain Rabdi Bun',
-    price: '₹80',
     notes: 'NUTTY / CREAMY / WHOLESOME',
   },
   {
-    id: 3,
+    id: 5,
     name: 'Chocolate Rabdi Bun',
-    price: '₹80',
     notes: 'RICH / INDULGENT / CLASSIC',
   },
   {
-    id: 4,
+    id: 6,
     name: 'Strawberry Rabdi Bun',
-    price: '₹80',
     notes: 'FRESH / CREAMY / FRUITY',
   },
   {
-    id: 5,
+    id: 7,
     name: 'Blueberry Rabdi Bun',
-    price: '₹80',
     notes: 'TANGY / CREAMY / REFRESHING',
   },
 ];
@@ -83,11 +92,11 @@ export default function MenuSection() {
             </div>
           </div>
 
-          {/* SECTION 1: CHAI */}
+          {/* SECTION 1: CHAI & COFFEE */}
           <div className="mb-8 sm:mb-10">
             <div className="flex items-center gap-3 mb-4 sm:mb-5">
               <h3 className="font-heading text-base sm:text-xl font-bold tracking-[0.25em] text-brand uppercase">
-                CHAI
+                CHAI & COFFEE
               </h3>
               <div className="h-px flex-1 bg-brand/20" />
             </div>
@@ -99,38 +108,75 @@ export default function MenuSection() {
               viewport={{ once: true }}
               className="space-y-3"
             >
-              {chaiItems.map((item) => (
+              {beverageItems.map((item) => (
                 <motion.div
                   key={item.name}
                   variants={itemVariants}
                   className="group relative rounded-xl bg-beige/60 hover:bg-[#ece4d6] p-3.5 sm:p-4.5 transition-all duration-300 border border-brand/10 hover:border-brand/25 flex items-center justify-between gap-3"
                 >
                   <div className="flex-1 min-w-0">
-                    <div className="flex items-baseline justify-between gap-2">
-                      <h4 className="font-heading text-base sm:text-lg font-semibold text-brand tracking-tight truncate">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <h4 className="font-heading text-base sm:text-lg font-semibold text-brand tracking-tight">
                         {item.name}
                       </h4>
-                      <span className="text-lg sm:text-xl font-heading font-bold text-brand shrink-0">
-                        {item.price}
-                      </span>
-                    </div>
-                    <div className="flex flex-wrap items-center gap-2 mt-0.5 sm:mt-1">
-                      <p className="text-[10px] sm:text-xs font-semibold tracking-wider text-brand/60 uppercase">
-                        {item.notes}
-                      </p>
                       {item.highlight && (
-                        <span className="inline-block px-2 py-0.2 rounded-full text-[9px] sm:text-[10px] font-medium italic text-brand bg-brand/10 border border-brand/15 font-serif">
+                        <span className="inline-block px-2.5 py-0.5 rounded-full text-[9px] sm:text-[10px] font-medium italic text-brand bg-brand/10 border border-brand/15 font-serif shrink-0">
                           "{item.highlight}"
                         </span>
                       )}
                     </div>
+                    <p className="text-[10px] sm:text-xs font-semibold tracking-wider text-brand/60 uppercase mt-1">
+                      {item.notes}
+                    </p>
                   </div>
                 </motion.div>
               ))}
             </motion.div>
           </div>
 
-          {/* SECTION 2: RABDI BUNS */}
+          {/* SECTION 2: SPECIALTIES */}
+          <div className="mb-8 sm:mb-10">
+            <div className="flex items-center gap-3 mb-4 sm:mb-5">
+              <h3 className="font-heading text-base sm:text-xl font-bold tracking-[0.25em] text-brand uppercase">
+                SPECIALTIES
+              </h3>
+              <div className="h-px flex-1 bg-brand/20" />
+            </div>
+
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="space-y-3"
+            >
+              {specialtyItems.map((item) => (
+                <motion.div
+                  key={item.name}
+                  variants={itemVariants}
+                  className="group relative rounded-xl bg-beige/60 hover:bg-[#ece4d6] p-3.5 sm:p-4.5 transition-all duration-300 border border-brand/10 hover:border-brand/25 flex items-center justify-between gap-3"
+                >
+                  <div className="flex-1 min-w-0">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <h4 className="font-heading text-base sm:text-lg font-semibold text-brand tracking-tight">
+                        {item.name}
+                      </h4>
+                      {item.highlight && (
+                        <span className="inline-block px-2.5 py-0.5 rounded-full text-[9px] sm:text-[10px] font-medium italic text-brand bg-brand/10 border border-brand/15 font-serif shrink-0">
+                          "{item.highlight}"
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-[10px] sm:text-xs font-semibold tracking-wider text-brand/60 uppercase mt-1">
+                      {item.notes}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+
+          {/* SECTION 3: RABDI BUNS */}
           <div className="mb-8 sm:mb-10">
             <div className="flex items-center justify-between gap-3 mb-4 sm:mb-5">
               <div className="flex items-center gap-3 flex-1">
@@ -158,14 +204,9 @@ export default function MenuSection() {
                   className="group relative rounded-xl bg-beige/60 hover:bg-[#ece4d6] p-3 sm:p-4 transition-all duration-300 border border-brand/10 hover:border-brand/25 flex items-center justify-between gap-3"
                 >
                   <div className="flex-1 min-w-0">
-                    <div className="flex items-baseline justify-between gap-2">
-                      <h4 className="font-heading text-sm sm:text-base font-semibold text-brand tracking-tight truncate">
-                        {bun.name}
-                      </h4>
-                      <span className="text-base sm:text-lg font-heading font-bold text-brand shrink-0">
-                        {bun.price}
-                      </span>
-                    </div>
+                    <h4 className="font-heading text-sm sm:text-base font-semibold text-brand tracking-tight truncate">
+                      {bun.name}
+                    </h4>
                     <p className="text-[9px] sm:text-xs font-semibold tracking-wider text-brand/60 uppercase mt-0.5">
                       {bun.notes}
                     </p>
